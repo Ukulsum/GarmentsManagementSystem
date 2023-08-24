@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FahimKniteComposite.Models.CategoryVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+@if(TempData["ResultOk"] != null)
+{
+    <h1 class="alert-success text-center">@TempData["ResultOk"]</h1>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1 class="text-center text-primary">Category List</h1>
+            <a class="btn btn-primary float-right p-1 m-1" asp-action="Create" asp-controller="Category">Add Category</a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="text-center bg-dark text-light">
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                         <th>Parent</th>
+                        <th>Person</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @if(Model != null)
+                    {
+                        @foreach (var Cat in Model)
+                        {
+                            <tr>
+                                <td>@Cat.CatId</td>
+                                <td>@Cat.CatName</td>
+                                  <td>@Cat.ParentCategory</td>
+                                <td>@Cat.Persons</td>
+                                <td>
+                                    <a class="btn btn-success" asp-action="Edit" asp-controller="Category" asp-route-id="@Cat.CatId">Edit</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Category" asp-route-id="@Cat.CatId">Delete</a>
+                                    <a class="btn btn-warning" asp-action="Details" asp-controller="Category" asp-route-id="@Cat.CatId">Details</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

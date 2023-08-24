@@ -1,0 +1,46 @@
+﻿@model FahimKniteComposite.Models.Category
+@{
+     ViewData["Title"] = "Edit";
+     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center text-info">Edit Category</h1>
+            <form method="post">
+               
+                 <div class="form-group">
+                    <label asp-for="ParentId"></label>
+                    
+                    <select asp-for="ParentId" asp-items="@ViewBag.ParentID">
+                        <option value="0">Select parent Category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Persons"></label>
+                   @* <input type="text" asp-for="Persons" placeholder="Person" class="form-control"/>*@
+                    <select asp-for="Persons" asp-items="Html.GetEnumSelectList<Person>()">
+                        <option value="0">Select Persons Category</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+               
+                     <input type="text" asp-for="CatId" placeholder="Category ID" class="form-control" hidden/>
+                    <label asp-for="CatName"></label>
+                    <input type="text" asp-for="CatName" placeholder="Category Name" class="form-control"/>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="ParentId"></label>
+                    <input type="text" asp-for="ParentId" placeholder="ParentId" class="form-control"/>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" class="btn btn-group-sm btn-primary float-right"/>
+                </div>
+                <a class="btn btn-sm btn-warning p-2 m-2" asp-action="Index" asp-controller="Category">Back To List</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+

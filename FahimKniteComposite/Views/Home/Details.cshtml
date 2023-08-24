@@ -1,0 +1,27 @@
+﻿@model FahimKniteComposite.Models.Products
+@{
+     ViewData["Title"] = "Details";
+     //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container" style="margin-top:100px">
+    <div class="row">
+        <div class="col-md-5">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                       <img src="@Url.Content(@Model.Path)" class="d-block w-100">
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-md-7">
+            <p style="font-size: 30px">@Model.ProductName</p>
+            <p>@Html.Raw(@Model.Description)</p>
+            <h3>CATEGORIES: @Model.Category.CatName</h3>
+        </div>
+    </div> 
+</div>
+

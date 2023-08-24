@@ -1,0 +1,60 @@
+﻿@model FahimKniteComposite.Models.Products
+@{
+     ViewData["Title"] = "Create";
+     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center text-info">Edit Product</h1>
+            <form method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
+                <div class="form-group">
+                    <label asp-for="CategoryID"></label>
+
+                    <select asp-for="CategoryID" asp-items="@ViewBag.CategoryID">
+                        <option value="0">Select Category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                      <input type="hidden" asp-for="ProductID"  class="form-control"/>
+                    <label asp-for="ProductName"></label>
+                    <input type="text" asp-for="ProductName" placeholder="Product Name" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    @*<textarea id="tiny" asp-for="Description" class="form-control"></textarea>*@
+                   <input type="text" asp-for="Description" placeholder="Enter Description" class="form-control"/>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label asp-for="ImagePath"></label>
+                        <input type="file" class="form-control" asp-for="ImagePath" />
+                        @*<span asp-validation-for="FileUpload.FormFile"></span>*@
+                    </div>
+                    <div class="col-4">
+                         <img src="@Url.Content(Model.Path)" style="width:100px;height:100px; border-radius:10px" alt="Product Image"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-group-sm btn-primary float-right">Update</button>
+                </div>
+                <a class="btn btn-sm btn-warning p-2 m-2" asp-action="Index" asp-controller="Product">Back To List</a>
+            </form>
+        </div>
+    </div>
+</div>
+@*
+@section Scripts{
+     <script>
+           tinymce.init({
+               selector: 'textarea#tiny'
+           });
+       </script>
+}*@
+
+
+
+
+

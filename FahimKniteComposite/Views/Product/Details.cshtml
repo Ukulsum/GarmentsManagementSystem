@@ -1,0 +1,34 @@
+﻿@model FahimKniteComposite.Models.Products
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-info">Product Details</h1>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 text-center p-4">
+                            <h4>Name : <em><b>@Model.ProductName</b></em></h4>
+                            <div class="m-2">
+                        <textarea class="form-control" cols="10" rows="2">@Model.Description</textarea>
+                    </div>
+                        </div>
+                         <div class="col-6 text-center p-4">
+                            <img src="@Url.Content(@Model.Path)" style="width:200px; height:200px; border-radius:10px;" alt="Product Image"/>
+                            <span>ID : <em><b>@Model.ProductID</b></em></span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary text-light">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
